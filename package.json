@@ -1,0 +1,10 @@
+{
+  "name": "sandboxed-runner",
+  "private": true,
+  "workspaces": [
+    "runner"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace runner"
+  }
+}
