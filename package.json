@@ -5,6 +5,15 @@
     "runner"
   ],
   "scripts": {
-    "build": "npm run build --workspace runner"
+    "build": "npm run build --workspace runner",
+    "test": "npm test --workspace runner",
+    "images": "npm run images:pull && npm run images:build",
+    "runner": "node runner/dist/cli.js",
+    "images:pull": "docker pull node:22-slim && docker pull alpine/git",
+    "images:build": "docker build -t sandboxed-runner/test-agent agents/test-agent",
+    "images:build:claude": "docker build -t sandboxed-runner/claude-agent agents/claude-agent"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
